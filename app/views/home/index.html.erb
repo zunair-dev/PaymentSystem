@@ -4,3 +4,9 @@
   <%= link_to "Log In", new_user_session_path %>
 <% end %>
 <h1>Welcome to Payment System!</h1>
+
+<% if current_user && current_user.credential_type.eql?("Admin") %>
+  <h1>Acmin Section</h1>
+<% elsif current_user && current_user.credential_type.eql?("Merchant") %>
+  <h1>Merchant Section</h1>
+<% end %>
