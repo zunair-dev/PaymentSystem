@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2022_12_12_162947) do
     t.string "name"
     t.string "description"
     t.integer "status", default: 0, null: false
+    t.string "email", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
