@@ -1,0 +1,2 @@
+class VoidTransaction < Transaction
+end

@@ -1,0 +1,2 @@
+class CaptureTransaction < Transaction
+end
