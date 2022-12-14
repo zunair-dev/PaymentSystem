@@ -3,7 +3,7 @@ class CaptureTransaction < Transaction
     auth_sum = AuthorizeTransaction.approved.sum(:amount)
     cap_sum  = CaptureTransaction.captured.sum(:amount)
 
-    AuthorizeTransaction.pending.each do |transaction|
+    CaptureTransaction.captured.each do |transaction|
       if cap_sum > auth_sum || (cap_sum + transaction.amount) > auth_sum
         transaction.update_column(:status, "error")
       else

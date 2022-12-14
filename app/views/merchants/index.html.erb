@@ -1,31 +1,30 @@
-<h1>Merchants</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @merchants.each do |merchant| %>
+<div class="mx-5">
+  <center><h1><b>Merchants</b></h1></center><br>
+  <table class="table">
+    <thead>
       <tr>
-        <td><span><%= merchant.name %></span></td>
-        <td><span><%= merchant.email %></span></td>
-        <td><span><%= merchant.description %></span></td>
-        <td><span><%= merchant.status.titleize %></span></td>
-        <td><%= link_to 'Show', merchant %></td>
-        <td><%= link_to 'Edit', edit_merchant_path(merchant) %></td>
-        <td><%= link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th scope="col-span-3">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Merchant', new_merchant_path %> 
+    </thead>
+    <tbody class="table-group-divider">  
+      <% @merchants.each do |merchant| %>
+        <tr>
+          <td><span><%= merchant.name %></span></td>
+          <td><span><%= merchant.email %></span></td>
+          <td><span><%= merchant.description %></span></td>
+          <td><span><%= merchant.status.titleize %></span></td>
+          <td><%= link_to 'Show', merchant %></td>
+          <td><%= link_to 'Edit', edit_merchant_path(merchant) %></td>
+          <td><%= link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table><br>
+  <%= link_to 'Add Merchant', new_merchant_path, class: "btn btn-success" %> 
+  <%= link_to 'Back', root_url, class: "btn btn-danger" %>
+</div>

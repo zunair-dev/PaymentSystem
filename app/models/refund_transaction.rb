@@ -3,7 +3,7 @@ class RefundTransaction < Transaction
     cap_sum = CaptureTransaction.captured.sum(:amount)
     refunded_sum = RefundTransaction.un_errored.sum(:amount)
 
-    RefundTransaction.pending.each do |transaction|
+    RefundTransaction.refunded.each do |transaction|
       if refunded_sum > cap_sum || (refunded_sum + transaction.amount) > cap_sum
         transaction.update_column(:status, "error")
       else

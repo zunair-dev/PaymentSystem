@@ -1,7 +1,13 @@
-<% if current_user && current_user.credential_type.eql?("Admin") %>
-  <h1>Admin Section</h1>
-  <%= link_to 'All Merchant', merchants_path %>
-  <%= link_to 'All Transactions', transactions_path %>
-<% elsif current_user && current_user.credential_type.eql?("Merchant") %>
-  <h1>Merchant Section</h1>
-<% end %>
+<div class="container">
+  <% if current_user && current_user.credential_type.eql?("Admin") %>
+    <h1>Welcom to the Admin Section</h1>
+    <p>You can deal with merchants & view details of the transaction</p>
+    <%= link_to 'All Merchant', merchants_path, class:"btn btn-warning" %>
+    <%= link_to 'All Transactions', transactions_path, class:"btn btn-info" %>
+  <% elsif current_user && current_user.credential_type.eql?("Merchant") %>
+    <h1>Welcome to the Merchant Section</h1>
+  <% else %>
+    <h1>Welcome to the Payment System</h1>
+    <p>Please login to continue.</p>
+  <% end %>
+</div>

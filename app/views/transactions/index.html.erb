@@ -1,31 +1,30 @@
-<h1>Transactions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>UUID</th>
-      <th>Amount</th>
-      <th>Customer Phone</th>
-      <th>Customer Email</th>
-      <th>Status</th>
-      <th>Notification Url</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @transactions.each do |transaction| %>
+<div class="mx-5">
+  <center><h1><b>Transactions</b></h1></center><br>
+  <table class="table">
+    <thead>
       <tr>
-        <td><span><%= transaction.uuid %></span></td>
-        <td><span><%= transaction.amount %></span></td>
-        <td><span><%= transaction.customer_phone %></span></td>
-        <td><span><%= transaction.customer_email %></span></td>
-        <td><span><%= transaction.status.titleize %></span></td>
-        <td><span><%= transaction.notification_url %></span></td>
+        <th scope="col">#</th>
+        <th scope="col">UUID</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Customer Phone</th>
+        <th scope="col">Customer Email</th>
+        <th scope="col">Status</th>
+        <th scope="col">Notification Url</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Back', root_url %> 
+    </thead>
+    <tbody class="table-group-divider">
+      <% @transactions.each_with_index do |transaction, index| %>
+        <tr>
+          <th><%= index + 1 %></th>
+          <td><%= transaction.uuid %></td>
+          <td><%= transaction.amount %></td>
+          <td><%= transaction.customer_phone %></td>
+          <td><%= transaction.customer_email %></td>
+          <td><%= transaction.status.titleize %></td>
+          <td><%= transaction.notification_url %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table><br>
+  <%= link_to 'Back', root_url, class: "btn btn-danger" %>
+</div>

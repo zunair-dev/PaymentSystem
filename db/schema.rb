@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2022_12_13_054247) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.bigint "uuid"
+    t.string "uuid"
     t.decimal "amount"
     t.string "customer_phone"
     t.string "customer_email", default: "", null: false
