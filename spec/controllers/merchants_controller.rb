@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe MerchantsController, type: :controller do
-
   describe 'before actions' do
     describe 'set_merchant' do
       it 'is expected to define before action' do
@@ -47,7 +46,10 @@ RSpec.describe MerchantsController, type: :controller do
     end
 
     context 'when params are correct' do
-      let(:merchant_params) { { merchant: { name: "Abhishek kanojia", description: "description", email: "test@gmail.com", status: 'active' } } }
+      let(:merchant_params) do
+        { merchant: { name: 'Abhishek kanojia', description: 'description', email: 'test@gmail.com',
+                      status: 'active' } }
+      end
 
       it 'is expected to create new merchant successfully' do
         expect(assigns[:merchant]).to be_instance_of(Merchant)
@@ -94,12 +96,10 @@ RSpec.describe MerchantsController, type: :controller do
         is_expected.to render_template(:edit)
       end
     end
-
   end
 
   # update action
   describe 'PATCH #update' do
-
     before do
       # something that you want to execute before running `it` block
       patch :update, params: params
@@ -140,7 +140,6 @@ RSpec.describe MerchantsController, type: :controller do
 
   # destroy action
   describe 'DELETE #destroy' do
-
     before do
       # something that you want to execute before running `it` block
       delete :destroy, params: params
@@ -165,5 +164,4 @@ RSpec.describe MerchantsController, type: :controller do
       end
     end
   end
-
 end

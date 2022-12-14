@@ -5,9 +5,9 @@ class CaptureTransaction < Transaction
 
     CaptureTransaction.captured.each do |transaction|
       if cap_sum > auth_sum || (cap_sum + transaction.amount) > auth_sum
-        transaction.update_column(:status, "error")
+        transaction.update_column(:status, 'error')
       else
-        transaction.update_column(:status, "approved")
+        transaction.update_column(:status, 'approved')
         cap_sum += transaction.amount
       end
     end

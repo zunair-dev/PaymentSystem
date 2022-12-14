@@ -8,19 +8,20 @@
         <th scope="col">Email</th>
         <th scope="col">Description</th>
         <th scope="col">Status</th>
-        <th scope="col-span-3">Actions</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">  
-      <% @merchants.each do |merchant| %>
+      <% @merchants.each_with_index do |merchant, index| %>
         <tr>
+          <th><%= index + 1 %></th>
           <td><span><%= merchant.name %></span></td>
           <td><span><%= merchant.email %></span></td>
           <td><span><%= merchant.description %></span></td>
           <td><span><%= merchant.status.titleize %></span></td>
-          <td><%= link_to 'Show', merchant %></td>
-          <td><%= link_to 'Edit', edit_merchant_path(merchant) %></td>
-          <td><%= link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', merchant, class: "btn btn-success" %>
+          <%= link_to 'Edit', edit_merchant_path(merchant), class: "btn btn-success" %>
+          <%= link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>

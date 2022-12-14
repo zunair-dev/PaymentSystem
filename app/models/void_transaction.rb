@@ -4,6 +4,6 @@ class VoidTransaction < Transaction
   private
 
   def set_status
-    self.status = "voided" if self.amount.blank?
+    self.status = 'voided' if amount.blank?
   end
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Merchant, type: :model do
-
   describe 'validations' do
     describe 'it validates name' do
       it { is_expected.to validate_presence_of(:name) }
@@ -19,5 +18,4 @@ RSpec.describe Merchant, type: :model do
       it { is_expected.to validate_presence_of(:email) }
     end
   end
-
 end

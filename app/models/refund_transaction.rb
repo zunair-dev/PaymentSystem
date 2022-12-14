@@ -5,9 +5,9 @@ class RefundTransaction < Transaction
 
     RefundTransaction.refunded.each do |transaction|
       if refunded_sum > cap_sum || (refunded_sum + transaction.amount) > cap_sum
-        transaction.update_column(:status, "error")
+        transaction.update_column(:status, 'error')
       else
-        transaction.update_column(status, "refunded")
+        transaction.update_column(status, 'refunded')
         refunded_sum += transaction.amount
       end
     end
