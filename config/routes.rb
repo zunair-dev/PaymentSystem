@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :merchants
+  resources :transactions, only: [:index]
 end

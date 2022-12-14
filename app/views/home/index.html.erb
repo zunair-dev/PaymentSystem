@@ -8,6 +8,7 @@
 <% if current_user && current_user.credential_type.eql?("Admin") %>
   <h1>Acmin Section</h1>
   <%= link_to 'All Merchant', merchants_path %>
+  <%= link_to 'All Transactions', transactions_path %>
 <% elsif current_user && current_user.credential_type.eql?("Merchant") %>
   <h1>Merchant Section</h1>
 <% end %>

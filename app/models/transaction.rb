@@ -1,6 +1,10 @@
 class Transaction < ApplicationRecord
-  validates :uuid, :customer_email, :amount, presence: true
-  validates :amount, comparison: { greater_than: 0 }
+  validates :uuid, :customer_email, presence: true
+  validates :amount, presence: true, unless: -> { self.class.eql? VoidTransaction}
+  validates :amount, numericality: { greater_than: 0 }, unless: -> { self.class.eql? VoidTransaction}
 
-  enum status: { pending: 0, approved: 1, captured: 2, refunded: 3, voided: 4, error: 5 }
+  scope :approved_and_captured, -> { where(status: ["approved", "captured"]) }
+  scope :un_errored, -> { where.not(status: "error") }
+
+  enum status: { pending: 0, approved: 1, declined: 2, captured: 3, refunded: 4, voided: 5, error: 6 }
 end

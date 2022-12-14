@@ -1,0 +1,31 @@
+<h1>Transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>UUID</th>
+      <th>Amount</th>
+      <th>Customer Phone</th>
+      <th>Customer Email</th>
+      <th>Status</th>
+      <th>Notification Url</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><span><%= transaction.uuid %></span></td>
+        <td><span><%= transaction.amount %></span></td>
+        <td><span><%= transaction.customer_phone %></span></td>
+        <td><span><%= transaction.customer_email %></span></td>
+        <td><span><%= transaction.status.titleize %></span></td>
+        <td><span><%= transaction.notification_url %></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', root_url %> 
