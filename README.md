@@ -1,24 +1,27 @@
-# README
+# Payment System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Payment System is a ROR project dealing with merchant & transactions.
 
-Things you may want to cover:
+## Ruby
 
-* Ruby version
+ruby-3.0.0
 
-* System dependencies
+## Rails
 
-* Configuration
+Rails 6.1.7
 
-* Database creation
+## Running the Project on local Development ENV
 
-* Database initialization
+run the following command to run the project
 
-* How to run the test suite
+```bash
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+And set the crons jobs env to development in order to run the background jobs on your local.
 
-* Deployment instructions
+```bash
+whenever --update-crontab --set environment=development
+```
 
-* ...
+That's pretty much it :(
