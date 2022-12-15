@@ -1,27 +1,48 @@
-# Payment System
+# Payment System Task
 
-Payment System is a ROR project dealing with merchant & transactions.
+A simple project to manage transactions.
 
-## Ruby
+#### Roles we have in App
 
-ruby-3.0.0
+- Admin
+- Merchants
 
-## Rails
+## Environment requirements
 
-Rails 6.1.7
+To run this project, you will need to add the following libraries to your system
 
-## Running the Project on local Development ENV
+`ruby: 3.0.0`
 
-run the following command to run the project
+`rails: 6.1.6`
+
+once you have them on your machine run `bundle install` and all of the project dependencies will be installed.
+
+## Steps to Run the project
+
+#### Database creation
+
+Create make sure you have postgresql installed and provide details of database in file:
 
 ```bash
-rails s
+database.yml
 ```
 
-And set the crons jobs env to development in order to run the background jobs on your local.
+After that you can create a database and run seed files by
 
 ```bash
-whenever --update-crontab --set environment=development
+  rails db:setup
 ```
 
-That's pretty much it :(
+once all done you just need to run the project by starting the server
+
+```bash
+  rails s
+```
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  rspec
+```
