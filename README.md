@@ -2,7 +2,7 @@
 
 A simple project to manage transactions.
 
-#### Roles we have in App
+#### Roles in the App
 
 - Admin
 - Merchants
